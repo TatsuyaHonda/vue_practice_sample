@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <HelloWorld
-      title="Welcome to Your Vue.js App"
-      message="※これは編集後です"
-    />
+    <HelloWorld :title="message" />
+    <hr>
+    <button @click="doAction">change title</button>
   </div>
 </template>
 
@@ -14,6 +13,17 @@ export default {
   name: "app",
   components: {
     HelloWorld,
+  },
+  data: function () {
+    return {
+      message: "HELLO",
+    };
+  },
+  methods: {
+    doAction: function () {
+      var inputValue = prompt("new title:");
+      this.message = inputValue;
+    },
   },
 };
 </script>
